@@ -1,0 +1,13 @@
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\bin\Debug\netcoreapp3.1\AdminUI.exe
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\bin\Debug\netcoreapp3.1\AdminUI.deps.json
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\bin\Debug\netcoreapp3.1\AdminUI.runtimeconfig.json
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\bin\Debug\netcoreapp3.1\AdminUI.runtimeconfig.dev.json
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\bin\Debug\netcoreapp3.1\AdminUI.dll
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\bin\Debug\netcoreapp3.1\AdminUI.pdb
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.csprojAssemblyReference.cache
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.AssemblyInfoInputs.cache
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.AssemblyInfo.cs
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.csproj.CoreCompileInputs.cache
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.dll
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.pdb
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.genruntimeconfig.cache
