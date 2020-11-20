@@ -16,22 +16,22 @@ namespace AdminUI
 
             Console.WriteLine("EmployeeManager Admin 1.0\n");
 
-            while (true)
-            {
+            //while (true)
+            //{
 
-                Console.WriteLine("\nEnter admin ID:");
-                string userInput1 = Console.ReadLine();
-                Console.WriteLine("\nEnter admin password");
-                string userInput2 = Console.ReadLine();
+            //    Console.WriteLine("\nEnter admin ID:");
+            //    string userInput1 = Console.ReadLine();
+            //    Console.WriteLine("\nEnter admin password");
+            //    string userInput2 = Console.ReadLine();
 
-                if (_userRepository.UserExist(userInput1, userInput2))
-                {
-                    break;
-                }
+            //    if (_userRepository.UserExist(userInput1, userInput2))
+            //    {
+            //        break;
+            //    }
 
-                Console.WriteLine("Wrong ID or password");
+            //    Console.WriteLine("Wrong ID or password");
 
-            }
+            //}
 
 
 

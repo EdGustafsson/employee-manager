@@ -9,17 +9,29 @@ namespace EmployeeManager.Users
 {
     public class FileUserRepository : IUserRepository
     {
+        //private readonly string _appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        //private readonly string _applicationDirectory = "User";
         private readonly string _fileName = "Users.csv";
+        private readonly string _path;
         private readonly List<User> _users = new List<User>();
         public FileUserRepository()
         {
 
-            if (!File.Exists(_fileName))
+            var path = Path.Combine(@"..\..\..\..\", _fileName);
+
+            //if (!Directory.Exists(directory))
+            //{
+            //    Directory.CreateDirectory(directory);
+            //}
+
+            //var path = Path.Combine(directory, _fileName);
+
+            if (!File.Exists(path))
             {
-                using (File.Create(_fileName)) { }
+                using (File.Create(path)) { }
             }
 
-           
+            _path = path;
 
 
             //_users = File.ReadAllLines(_fileName)
@@ -29,7 +41,7 @@ namespace EmployeeManager.Users
 
             string line;
 
-            using (StreamReader file = File.OpenText(_fileName))
+            using (StreamReader file = File.OpenText(path))
             {
                 while ((line = file.ReadLine()) != null)
                 {
@@ -82,7 +94,7 @@ namespace EmployeeManager.Users
 
         public void Save()
         {
-            using (var file = File.CreateText(_fileName))
+            using (var file = File.CreateText(_path))
             {
                 foreach (var user in _users)
                 {
