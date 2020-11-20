@@ -1,0 +1,9 @@
+C:\workspace\oop_csharp\assignments\EmployeeManager\EmployeeManager\bin\Debug\netcoreapp3.1\EmployeeManager.deps.json
+C:\workspace\oop_csharp\assignments\EmployeeManager\EmployeeManager\bin\Debug\netcoreapp3.1\EmployeeManager.dll
+C:\workspace\oop_csharp\assignments\EmployeeManager\EmployeeManager\bin\Debug\netcoreapp3.1\EmployeeManager.pdb
+C:\workspace\oop_csharp\assignments\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp3.1\EmployeeManager.csprojAssemblyReference.cache
+C:\workspace\oop_csharp\assignments\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp3.1\EmployeeManager.AssemblyInfoInputs.cache
+C:\workspace\oop_csharp\assignments\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp3.1\EmployeeManager.AssemblyInfo.cs
+C:\workspace\oop_csharp\assignments\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp3.1\EmployeeManager.csproj.CoreCompileInputs.cache
+C:\workspace\oop_csharp\assignments\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp3.1\EmployeeManager.dll
+C:\workspace\oop_csharp\assignments\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp3.1\EmployeeManager.pdb

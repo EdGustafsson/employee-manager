@@ -12,5 +12,6 @@ namespace EmployeeManager.Users
         void AddUser(User user);
         void RemoveUser(User user);
         void Save();
+        bool UserExist(string id, string password);
     }
 }

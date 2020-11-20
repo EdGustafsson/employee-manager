@@ -11,3 +11,6 @@ C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp
 C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.dll
 C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.pdb
 C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.genruntimeconfig.cache
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\bin\Debug\netcoreapp3.1\EmployeeManager.dll
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\bin\Debug\netcoreapp3.1\EmployeeManager.pdb
+C:\workspace\oop_csharp\assignments\EmployeeManager\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.csproj.CopyComplete

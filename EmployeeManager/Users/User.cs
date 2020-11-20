@@ -7,19 +7,17 @@ namespace EmployeeManager.Users
     public class User
     {
 
-        public User(string id, string firstname, string lastname ,string password ,string address, string admin)
+        public User(string id, string name, string password ,string address, string admin)
         {
             Id = id;
-            FirstName = firstname;
-            LastName = lastname;
+            Name = name;
             Password = password;
             Address = address;
             Admin = admin;
         }
 
         public string Id { get; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
+        public string Name { get; private set; }
         public string Password { get; private set; }
         public string Address { get; private set; }
         public string Admin { get; private set; }

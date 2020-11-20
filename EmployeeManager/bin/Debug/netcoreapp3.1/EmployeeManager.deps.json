@@ -6,14 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "AdminUI/1.0.0": {
-        "dependencies": {
-          "EmployeeManager": "1.0.0"
-        },
-        "runtime": {
-          "AdminUI.dll": {}
-        }
-      },
       "EmployeeManager/1.0.0": {
         "runtime": {
           "EmployeeManager.dll": {}
@@ -22,11 +14,6 @@
     }
   },
   "libraries": {
-    "AdminUI/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "EmployeeManager/1.0.0": {
       "type": "project",
       "serviceable": false,
