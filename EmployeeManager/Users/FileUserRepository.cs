@@ -45,10 +45,11 @@ namespace EmployeeManager.Users
             return _users;
         }
 
-        public User GetUser(string id, string password)
+        public User GetUser(string id)
         {
 
-            return _users.Single(e => e.Id == id && e.Password == password);
+            return _users.Single(e => e.Id == id);
+
         }
 
         public void AddUser(User user)
@@ -59,6 +60,26 @@ namespace EmployeeManager.Users
         {
             _users.Remove(user);
         }
+        public void UpdateUser(User user, string selection, string newValue)
+        {
+            switch (selection)
+            {
+                case "id":
+                    user.Id = newValue;
+                    break;
+                case "name":
+                    user.Id = newValue;
+                    break;
+                case "password":
+                    user.Id = newValue;
+                    break;
+                case "address":
+                    user.Id = newValue;
+                    break;
+            }
+
+        }
+
         public void Save()
         {
             using (var file = File.CreateText(_fileName))

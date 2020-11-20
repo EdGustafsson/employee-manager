@@ -1,0 +1,16 @@
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\bin\Debug\netcoreapp3.1\UserUI.exe
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\bin\Debug\netcoreapp3.1\UserUI.deps.json
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\bin\Debug\netcoreapp3.1\UserUI.runtimeconfig.json
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\bin\Debug\netcoreapp3.1\UserUI.runtimeconfig.dev.json
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\bin\Debug\netcoreapp3.1\UserUI.dll
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\bin\Debug\netcoreapp3.1\UserUI.pdb
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\bin\Debug\netcoreapp3.1\EmployeeManager.dll
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\bin\Debug\netcoreapp3.1\EmployeeManager.pdb
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\obj\Debug\netcoreapp3.1\UserUI.csprojAssemblyReference.cache
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\obj\Debug\netcoreapp3.1\UserUI.AssemblyInfoInputs.cache
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\obj\Debug\netcoreapp3.1\UserUI.AssemblyInfo.cs
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\obj\Debug\netcoreapp3.1\UserUI.csproj.CoreCompileInputs.cache
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\obj\Debug\netcoreapp3.1\UserUI.csproj.CopyComplete
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\obj\Debug\netcoreapp3.1\UserUI.dll
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\obj\Debug\netcoreapp3.1\UserUI.pdb
+C:\workspace\oop_csharp\assignments\EmployeeManager\UserUI\obj\Debug\netcoreapp3.1\UserUI.genruntimeconfig.cache

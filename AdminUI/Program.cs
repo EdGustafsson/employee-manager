@@ -89,8 +89,7 @@ namespace AdminUI
 
                 User selectedUser = _users.Single(e => e.Id == userInput);
                 _userRepository.RemoveUser(selectedUser);
-
-
+                _userRepository.Save();
             }
         }
     }

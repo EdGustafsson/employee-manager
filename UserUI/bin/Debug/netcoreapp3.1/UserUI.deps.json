@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "UserUI/1.0.0": {
+        "dependencies": {
+          "EmployeeManager": "1.0.0"
+        },
+        "runtime": {
+          "UserUI.dll": {}
+        }
+      },
+      "EmployeeManager/1.0.0": {
+        "runtime": {
+          "EmployeeManager.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "UserUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EmployeeManager/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

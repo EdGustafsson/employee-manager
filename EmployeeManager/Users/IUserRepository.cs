@@ -8,10 +8,14 @@ namespace EmployeeManager.Users
     {
 
         List<User> GetUsers();
-        User GetUser(string id, string password);
+        User GetUser(string id);
         void AddUser(User user);
         void RemoveUser(User user);
+
+        void UpdateUser(User user, string selection, string newValue);
         void Save();
         bool UserExist(string id, string password);
+
+
     }
 }

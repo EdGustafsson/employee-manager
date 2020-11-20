@@ -16,11 +16,11 @@ namespace EmployeeManager.Users
             Admin = admin;
         }
 
-        public string Id { get; }
-        public string Name { get; private set; }
-        public string Password { get; private set; }
-        public string Address { get; private set; }
-        public string Admin { get; private set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
+        public string Address { get;set; }
+        public string Admin { get; set; }
 
         //public static User FromCsv(string csvLine)
         //{
