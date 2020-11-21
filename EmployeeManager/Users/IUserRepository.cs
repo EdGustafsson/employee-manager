@@ -14,7 +14,10 @@ namespace EmployeeManager.Users
 
         void UpdateUser(User user, string selection, string newValue);
         void Save();
+
+        bool UserExist(string id);
         bool UserExist(string id, string password);
+        bool AdminExist(string id, string password, string admin);
 
 
     }

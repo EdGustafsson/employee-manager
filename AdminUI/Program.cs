@@ -16,22 +16,36 @@ namespace AdminUI
 
             Console.WriteLine("EmployeeManager Admin 1.0\n");
 
-            //while (true)
-            //{
+            User activeUser;
 
-            //    Console.WriteLine("\nEnter admin ID:");
-            //    string userInput1 = Console.ReadLine();
-            //    Console.WriteLine("\nEnter admin password");
-            //    string userInput2 = Console.ReadLine();
+            while (true)
+            {
 
-            //    if (_userRepository.UserExist(userInput1, userInput2))
-            //    {
-            //        break;
-            //    }
+                Console.WriteLine("\nEnter admin ID:");
+                string userInput1 = Console.ReadLine();
+                Console.WriteLine("\nEnter admin password");
+                string userInput2 = Console.ReadLine();
 
-            //    Console.WriteLine("Wrong ID or password");
+                
+                if(_userRepository.UserExist(userInput1, userInput2))
+                {
 
-            //}
+                    activeUser = _userRepository.GetUser(userInput1);
+
+                    if (activeUser.Admin == "1")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("User does not have admin permission");
+                    }
+
+                }
+
+                Console.WriteLine("Wrong ID or password");
+
+            }
 
 
 
@@ -55,28 +69,67 @@ namespace AdminUI
 
                 for (int i = 0; i < _users.Count; i++)
                 {
-                    Console.WriteLine($"\n{_users[i].Id}\n{_users[i].Name}\n{_users[i].Password}\n{_users[i].Address}\n{_users[i].Admin}\n");
+                    string admin;
+
+                    if (_users[i].Admin == "1")
+                    {
+                        admin = "Yes";
+                    }
+                    else
+                    {
+                        admin = "No";
+                    }
+
+                    Console.WriteLine($"ID: {_users[i].Id}\nName: {_users[i].Name}\nPassword: {_users[i].Password}\nAddress: {_users[i].Address}\n Admin Access: {admin}\n");
                 }
 
             }
             if (userChoice == "c")
             {
+                bool a = true;
 
-                Console.WriteLine("Enter new user ID");
-                string input1 = Console.ReadLine();
-                Console.WriteLine("Enter name");
-                string input2 = Console.ReadLine();
-                Console.WriteLine("Enter password");
-                string input3 = Console.ReadLine();
-                Console.WriteLine("Enter address");
-                string input4 = Console.ReadLine();
-                Console.WriteLine("Should the user have admin privileges? Enter y or n");
-                string input5 = Console.ReadLine();
+                while (a)
+                {
+                    Console.WriteLine("Enter new user ID");
+                    string input1 = Console.ReadLine();
+                    Console.WriteLine("Enter name");
+                    string input2 = Console.ReadLine();
+                    Console.WriteLine("Enter password");
+                    string input3 = Console.ReadLine();
+                    Console.WriteLine("Enter address");
+                    string input4 = Console.ReadLine();
+                    Console.WriteLine("Should the user have admin privileges? Enter y or n");
+                    string input5 = Console.ReadLine();
 
-                User newUser = new User(input1, input2, input3, input4, input5);
+                    if(input5 == "y")
+                    {
+                        input5 = "1";
+                    }
+                    else if(input5 == "n")
+                    {
+                        input5 = "0";
+                    }
 
-                _userRepository.AddUser(newUser);
-                _userRepository.Save();
+
+
+                    if (_userRepository.UserExist(input1))
+                    {
+                        Console.WriteLine("A user with that ID already exists");
+                    }
+                    else
+                    {
+
+                        User newUser = new User(input1, input2, input3, input4, input5);
+
+                        _userRepository.AddUser(newUser);
+                        _userRepository.Save();
+                        a = false;
+                    }
+                }
+
+
+                
+
 
 
             }

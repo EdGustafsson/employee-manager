@@ -105,7 +105,32 @@ namespace EmployeeManager.Users
             }
         }
 
+
+        public bool UserExist(string id)
+        {
+            for (int i = 0; i < _users.Count; i++)
+            {
+                if (_users[i].Id == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public bool UserExist(string id, string password)
+        {
+            for (int i = 0; i < _users.Count; i++)
+            {
+                if (_users[i].Id == id && _users[i].Password == password)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool AdminExist(string id, string password, string admin)
         {
             for (int i = 0; i < _users.Count; i++)
             {
