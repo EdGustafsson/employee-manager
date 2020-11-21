@@ -52,7 +52,7 @@ namespace UserUI
                 Console.WriteLine("Password = " + activeUser.Password);
                 Console.WriteLine("Address = " + activeUser.Address);
 
-                Console.WriteLine("\nEnter which item you would like to change");
+                Console.WriteLine("\n Enter which item you would like to change");
                 Console.WriteLine("*In lowercase only");
 
                 string userChoice = Console.ReadLine();
