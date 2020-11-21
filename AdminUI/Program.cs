@@ -14,7 +14,7 @@ namespace AdminUI
 
             _userRepository = new FileUserRepository();
 
-            Console.WriteLine("EmployeeManager Admin 1.0\n");
+            Console.WriteLine("EmployeeManager Admin 1.0");
 
             User activeUser;
 
@@ -26,8 +26,8 @@ namespace AdminUI
                 Console.WriteLine("\nEnter admin password");
                 string userInput2 = Console.ReadLine();
 
-                
-                if(_userRepository.UserExist(userInput1, userInput2))
+
+                if (_userRepository.UserExist(userInput1, userInput2))
                 {
 
                     activeUser = _userRepository.GetUser(userInput1);
@@ -38,19 +38,17 @@ namespace AdminUI
                     }
                     else
                     {
-                        Console.WriteLine("User does not have admin permission");
+                        Console.WriteLine("\nUser does not have admin permission");
                     }
 
                 }
 
-                Console.WriteLine("Wrong ID or password");
+                Console.WriteLine("\nWrong ID or password");
 
             }
 
-
-
-            Console.WriteLine("");
-
+            while (true)
+            {
 
             Console.WriteLine("\nSuccessful Log in");
 
@@ -80,7 +78,9 @@ namespace AdminUI
                         admin = "No";
                     }
 
-                    Console.WriteLine($"ID: {_users[i].Id}\nName: {_users[i].Name}\nPassword: {_users[i].Password}\nAddress: {_users[i].Address}\n Admin Access: {admin}\n");
+                    Console.WriteLine($"\nUser {i + 1}");
+                    Console.WriteLine($"ID: {_users[i].Id}\nName: {_users[i].Name}\nPassword: {_users[i].Password}\nAddress: {_users[i].Address}\nAdmin Access: {admin}");
+
                 }
 
             }
@@ -90,7 +90,7 @@ namespace AdminUI
 
                 while (a)
                 {
-                    Console.WriteLine("Enter new user ID");
+                    Console.WriteLine("\nEnter new user ID");
                     string input1 = Console.ReadLine();
                     Console.WriteLine("Enter name");
                     string input2 = Console.ReadLine();
@@ -110,11 +110,9 @@ namespace AdminUI
                         input5 = "0";
                     }
 
-
-
                     if (_userRepository.UserExist(input1))
                     {
-                        Console.WriteLine("A user with that ID already exists");
+                        Console.WriteLine("\nA user with that ID already exists");
                     }
                     else
                     {
@@ -126,13 +124,8 @@ namespace AdminUI
                         a = false;
                     }
                 }
-
-
-                
-
-
-
             }
+
             if (userChoice == "d")
             {
                 List<User> _users = _userRepository.GetUsers();
@@ -143,6 +136,9 @@ namespace AdminUI
                 User selectedUser = _users.Single(e => e.Id == userInput);
                 _userRepository.RemoveUser(selectedUser);
                 _userRepository.Save();
+            }
+
+
             }
         }
     }
