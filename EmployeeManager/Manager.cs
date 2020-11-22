@@ -193,8 +193,6 @@ namespace EmployeeManager
         }
         public void DeleteUser()
         {
-            while (true)
-            {
 
                 List<User> _users = _userRepository.GetUsers();
 
@@ -217,7 +215,6 @@ namespace EmployeeManager
                     Console.WriteLine("No user with that ID found");
                 }
 
-            }
 
 
         }
