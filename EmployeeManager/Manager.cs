@@ -37,9 +37,13 @@ namespace EmployeeManager
                 {
                     DeleteUser();
                 }
-                if (userChoice == "e")
+                else if (userChoice == "e")
                 {
-                    EditUser();
+                    AdminEditUser();
+                }
+                else
+                {
+                    Console.WriteLine("\nPlease enter one of the choices below");
                 }
 
             }
@@ -88,16 +92,59 @@ namespace EmployeeManager
 
             while (a)
             {
+
+                string input1 = "";
+                string input2 = "";
+                string input3 = "";
+                string input4 = "";
+                string input5 = "";
+
                 Console.WriteLine("\nEnter new user ID");
-                string input1 = Console.ReadLine();
+
+                while (true)
+                {
+                    input1 = Console.ReadLine();
+                    if (_userRepository.UserExist(input1))
+                    {
+                        Console.WriteLine("\nA user with that ID already exists, please choose another");
+                    }
+                    if (!input1.All(char.IsDigit))
+                    {
+                        Console.WriteLine("\nID can only be numbers");
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+
                 Console.WriteLine("Enter name");
-                string input2 = Console.ReadLine();
+                input2 = Console.ReadLine();
+
                 Console.WriteLine("Enter password");
-                string input3 = Console.ReadLine();
+                input3 = Console.ReadLine();
+
                 Console.WriteLine("Enter address");
-                string input4 = Console.ReadLine();
+                input4 = Console.ReadLine();
+
                 Console.WriteLine("Should the user have admin privileges? Enter y or n");
-                string input5 = Console.ReadLine();
+
+                while (true)
+                {
+
+                    input5 = Console.ReadLine();
+                    if (input5 == "y" || input5 == "n")
+                    {
+                        break;
+                    }
+
+                    Console.WriteLine("Enter 'y' for yes or 'n' for no");
+
+                }
+
+
+
 
                 if (input5 == "y")
                 {
@@ -108,10 +155,7 @@ namespace EmployeeManager
                     input5 = "0";
                 }
 
-                if (_userRepository.UserExist(input1))
-                {
-                    Console.WriteLine("\nA user with that ID already exists");
-                }
+
                 else
                 {
 
@@ -125,26 +169,123 @@ namespace EmployeeManager
         }
         public void DeleteUser()
         {
-            List<User> _users = _userRepository.GetUsers();
+            while (true)
+            {
 
-            Console.WriteLine("Type the ID of the user you would like to delete");
-            string userInput = Console.ReadLine();
+                List<User> _users = _userRepository.GetUsers();
 
-            User selectedUser = _users.Single(e => e.Id == userInput);
-            _userRepository.RemoveUser(selectedUser);
-            _userRepository.Save();
+                Console.WriteLine("Type the ID of the user you would like to delete");
+                string userInput = Console.ReadLine();
+
+                if (_userRepository.UserExist(userInput))
+                {
+                    User selectedUser = _users.Single(e => e.Id == userInput);
+
+                    _userRepository.RemoveUser(selectedUser);
+                    _userRepository.Save();
+                }
+                else
+                {
+                    Console.WriteLine("No user with that ID found");
+                }
+
+            }
+
 
         }
 
-        public void EditUser()
+        public void AdminEditUser()
         {
             List<User> _users = _userRepository.GetUsers();
 
             Console.WriteLine("Type the ID of the user you would like to edit");
             string userInput = Console.ReadLine();
 
-            User selectedUser = _users.Single(e => e.Id == userInput);
+            if (_userRepository.UserExist(userInput))
+            {
+                User selectedUser = _users.Single(e => e.Id == userInput);
 
+                EditUser(selectedUser);
+
+            }
+            else
+            {
+                Console.WriteLine("No user with that ID found");
+            }
+
+
+            //Console.WriteLine("\nAccount information");
+            //Console.WriteLine("Id = " + selectedUser.Id);
+            //Console.WriteLine("Name = " + selectedUser.Name);
+            //Console.WriteLine("Password = " + selectedUser.Password);
+            //Console.WriteLine("Address = " + selectedUser.Address);
+
+            //Console.WriteLine("\n Enter which item you would like to change");
+            //Console.WriteLine("In lowercase only (e.g., id, name, password, address)");
+
+            //string userChoice = Console.ReadLine();
+
+
+
+
+            //if (userChoice == "id")
+            //{
+            //    while (true)
+            //    {
+            //        Console.Write("\nEnter new id:");
+            //        string id = Console.ReadLine();
+
+            //        if (_userRepository.UserExist(id))
+            //        {
+            //            Console.WriteLine("\nA user with that ID already exists");
+            //        }
+            //        else
+            //        {
+
+            //            selectedUser.Id = id;
+
+            //            _userRepository.Save();
+            //            break;
+            //        }
+            //    }
+
+            //}
+            //else if(userChoice == "name")
+            //{
+            //    Console.Write("\nEnter new name:");
+            //    selectedUser.Name = Console.ReadLine();
+
+            //    _userRepository.Save();
+            //}
+            //else if(userChoice == "password")
+            //{
+            //    Console.Write("\nEnter new password:");
+            //    selectedUser.Password = Console.ReadLine();
+
+            //    _userRepository.Save();
+            //}
+            //else if (userChoice == "address")
+            //{
+            //    Console.Write("\nEnter new address:");
+            //    selectedUser.Address = Console.ReadLine();
+
+            //    _userRepository.Save();
+            //}
+            //else
+            //{
+            //    Console.WriteLine("\nPlease enter one of the choices below");
+            //}
+
+
+
+
+        }
+
+        public void EditUser(User user)
+        {
+            List<User> _users = _userRepository.GetUsers();
+
+            User selectedUser = _users.Single(e => e.Id == user.Id);
 
             Console.WriteLine("\nAccount information");
             Console.WriteLine("Id = " + selectedUser.Id);
@@ -152,7 +293,7 @@ namespace EmployeeManager
             Console.WriteLine("Password = " + selectedUser.Password);
             Console.WriteLine("Address = " + selectedUser.Address);
 
-            Console.WriteLine("\n Enter which item you would like to change");
+            Console.WriteLine("\nEnter which item you would like to change");
             Console.WriteLine("In lowercase only (e.g., id, name, password, address)");
 
             string userChoice = Console.ReadLine();
@@ -171,6 +312,10 @@ namespace EmployeeManager
                     {
                         Console.WriteLine("\nA user with that ID already exists");
                     }
+                    else if (!id.All(char.IsDigit))
+                    {
+                        Console.WriteLine("\nID can only be numbers");
+                    }
                     else
                     {
 
@@ -180,99 +325,35 @@ namespace EmployeeManager
                 }
 
             }
+            else if (userChoice == "name")
+            {
+                Console.Write("\nEnter new name:");
+                selectedUser.Name = Console.ReadLine();
+
+                _userRepository.Save();
+            }
+            else if (userChoice == "password")
+            {
+                Console.Write("\nEnter new password:");
+                selectedUser.Password = Console.ReadLine();
+
+                _userRepository.Save();
+            }
+            else if (userChoice == "address")
+            {
+                Console.Write("\nEnter new address:");
+                selectedUser.Address = Console.ReadLine();
+
+                _userRepository.Save();
+            }
             else
             {
-                switch (userChoice)
-                {
-
-                    case "name":
-                        Console.Write("\nEnter new name:");
-                        selectedUser.Name = Console.ReadLine();
-                        break;
-                    case "password":
-                        Console.Write("\nEnter new password:");
-                        selectedUser.Password = Console.ReadLine();
-                        break;
-                    case "address":
-                        Console.Write("\nEnter new address:");
-                        selectedUser.Address = Console.ReadLine();
-                        break;
-                }
+                Console.WriteLine("\nPlease enter one of the choices below");
             }
 
             _userRepository.Save();
 
 
-
-
-
-        }
-
-        public void EditUser(User activeUser)
-        {
-            while (true)
-            {
-                List<User> _users = _userRepository.GetUsers();
-
-                User selectedUser = _users.Single(e => e.Id == activeUser.Id);
-
-                Console.WriteLine("\nAccount information");
-                Console.WriteLine("Id = " + selectedUser.Id);
-                Console.WriteLine("Name = " + selectedUser.Name);
-                Console.WriteLine("Password = " + selectedUser.Password);
-                Console.WriteLine("Address = " + selectedUser.Address);
-
-                Console.WriteLine("\nEnter which item you would like to change");
-                Console.WriteLine("In lowercase only (e.g., id, name, password, address)");
-
-                string userChoice = Console.ReadLine();
-
-
-
-
-                if (userChoice == "id")
-                {
-                    while (true)
-                    {
-                        Console.Write("\nEnter new id:");
-                        string id = Console.ReadLine();
-
-                        if (_userRepository.UserExist(id))
-                        {
-                            Console.WriteLine("\nA user with that ID already exists");
-                        }
-                        else
-                        {
-
-                            selectedUser.Id = id;
-                            break;
-                        }
-                    }
-
-                }
-                else
-                {
-                    switch (userChoice)
-                    {
-
-                        case "name":
-                            Console.Write("\nEnter new name:");
-                            selectedUser.Name = Console.ReadLine();
-                            break;
-                        case "password":
-                            Console.Write("\nEnter new password:");
-                            selectedUser.Password = Console.ReadLine();
-                            break;
-                        case "address":
-                            Console.Write("\nEnter new address:");
-                            selectedUser.Address = Console.ReadLine();
-                            break;
-                    }
-                }
-
-                _userRepository.Save();
-
-            }
 
         }
     }

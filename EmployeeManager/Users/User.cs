@@ -7,7 +7,7 @@ namespace EmployeeManager.Users
     public class User
     {
 
-        public User(string id, string name, string password ,string address, string admin)
+        public User(string id, string name, string password, string address, string admin)
         {
             Id = id;
             Name = name;
@@ -19,7 +19,7 @@ namespace EmployeeManager.Users
         public string Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-        public string Address { get;set; }
+        public string Address { get; set; }
         public string Admin { get; set; }
 
         //public static User FromCsv(string csvLine)

@@ -49,7 +49,7 @@ namespace EmployeeManager.Users
                     _users.Add(new User(words[0], words[1], words[2], words[3], words[4]));
                 }
 
-            }    
+            }
         }
 
         public List<User> GetUsers()
