@@ -16,10 +16,12 @@ namespace EmployeeManager
             while (true)
             {
 
+                Console.WriteLine("\nMAIN MENU");
                 Console.WriteLine("\nEnter a to list all users");
                 Console.WriteLine("Enter c to create new user");
                 Console.WriteLine("Enter d to delete a user");
                 Console.WriteLine("Enter e to edit a user");
+                Console.WriteLine("Enter x at any point to return to the main menu");
 
 
 
@@ -51,9 +53,15 @@ namespace EmployeeManager
 
         public void UserMain(User activeUser)
         {
-            _userRepository = new FileUserRepository();
+            while (true)
+            {
+                Console.WriteLine("\nMAIN MENU");
+                Console.WriteLine("Enter x at any point to return to the main menu");
 
-            EditUser(activeUser);
+                _userRepository = new FileUserRepository();
+
+                EditUser(activeUser);
+            }
 
         }
 
@@ -89,55 +97,79 @@ namespace EmployeeManager
         public void CreateUser()
         {
 
-                string input1 = "";
-                string input2 = "";
-                string input3 = "";
-                string input4 = "";
-                string input5 = "";
+            string input1 = "";
+            string input2 = "";
+            string input3 = "";
+            string input4 = "";
+            string input5 = "";
 
-                Console.WriteLine("\nEnter new user ID");
+            Console.WriteLine("\nEnter new user ID");
 
-                while (true)
+            while (true)
+            {
+                input1 = Console.ReadLine();
+
+                if (input1 == "x")
                 {
-                    input1 = Console.ReadLine();
-                    if (_userRepository.UserExist(input1))
-                    {
-                        Console.WriteLine("\nA user with that ID already exists, please choose another");
-                    }
-                    else if (!input1.All(char.IsDigit))
-                    {
-                        Console.WriteLine("\nID can only be numbers");
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    return;
+                }
+                else if (_userRepository.UserExist(input1))
+                {
+                    Console.WriteLine("\nA user with that ID already exists, please choose another");
+                }
+                else if (!input1.All(char.IsDigit))
+                {
+                    Console.WriteLine("\nID can only be numbers");
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+
+            Console.WriteLine("Enter name");
+            input2 = Console.ReadLine();
+
+            if (input2 == "x")
+            {
+                return;
+            }
+
+            Console.WriteLine("Enter password");
+            input3 = Console.ReadLine();
+
+            if (input3 == "x")
+            {
+                return;
+            }
+
+            Console.WriteLine("Enter address");
+            input4 = Console.ReadLine();
+
+            if (input4 == "x")
+            {
+                return;
+            }
+
+            Console.WriteLine("Should the user have admin privileges? Enter y or n");
+
+            while (true)
+            {
+
+                input5 = Console.ReadLine();
+                if (input5 == "x")
+                {
+                    return;
+                }
+                else if (input5 == "y" || input5 == "n")
+                {
+                    break;
                 }
 
+                Console.WriteLine("Enter 'y' for yes or 'n' for no");
 
-                Console.WriteLine("Enter name");
-                input2 = Console.ReadLine();
-
-                Console.WriteLine("Enter password");
-                input3 = Console.ReadLine();
-
-                Console.WriteLine("Enter address");
-                input4 = Console.ReadLine();
-
-                Console.WriteLine("Should the user have admin privileges? Enter y or n");
-
-                while (true)
-                {
-
-                    input5 = Console.ReadLine();
-                    if (input5 == "y" || input5 == "n")
-                    {
-                        break;
-                    }
-
-                    Console.WriteLine("Enter 'y' for yes or 'n' for no");
-
-                }
+            }
 
 
 
@@ -152,12 +184,12 @@ namespace EmployeeManager
             }
 
 
-                User newUser = new User(input1, input2, input3, input4, input5);
+            User newUser = new User(input1, input2, input3, input4, input5);
 
-                _userRepository.AddUser(newUser);
-                _userRepository.Save();
-            
-            
+            _userRepository.AddUser(newUser);
+            _userRepository.Save();
+
+
         }
         public void DeleteUser()
         {
@@ -169,7 +201,11 @@ namespace EmployeeManager
                 Console.WriteLine("Type the ID of the user you would like to delete");
                 string userInput = Console.ReadLine();
 
-                if (_userRepository.UserExist(userInput))
+                if (userInput == "x")
+                {
+                    return;
+                }
+                else if (_userRepository.UserExist(userInput))
                 {
                     User selectedUser = _users.Single(e => e.Id == userInput);
 
@@ -193,7 +229,11 @@ namespace EmployeeManager
             Console.WriteLine("Type the ID of the user you would like to edit");
             string userInput = Console.ReadLine();
 
-            if (_userRepository.UserExist(userInput))
+            if (userInput == "x")
+            {
+                return;
+            }
+            else if (_userRepository.UserExist(userInput))
             {
                 User selectedUser = _users.Single(e => e.Id == userInput);
 
@@ -226,26 +266,33 @@ namespace EmployeeManager
 
 
 
-
-            if (userChoice == "id")
+            if (userChoice == "x")
+            {
+                return;
+            }
+            else if (userChoice == "id")
             {
                 while (true)
                 {
                     Console.Write("\nEnter new id:");
-                    string id = Console.ReadLine();
+                    string userInput = Console.ReadLine();
 
-                    if (_userRepository.UserExist(id))
+                    if (userInput == "x")
+                    {
+                        return;
+                    }
+                    else if (_userRepository.UserExist(userInput))
                     {
                         Console.WriteLine("\nA user with that ID already exists");
                     }
-                    else if (!id.All(char.IsDigit))
+                    else if (!userInput.All(char.IsDigit))
                     {
                         Console.WriteLine("\nID can only be numbers");
                     }
                     else
                     {
 
-                        selectedUser.Id = id;
+                        selectedUser.Id = userInput;
                         break;
                     }
                 }
@@ -254,22 +301,43 @@ namespace EmployeeManager
             else if (userChoice == "name")
             {
                 Console.Write("\nEnter new name:");
-                selectedUser.Name = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
+
+                if (userInput == "x")
+                {
+                    return;
+                }
+
+                selectedUser.Name = userInput;
                 _userRepository.Save();
             }
             else if (userChoice == "password")
             {
                 Console.Write("\nEnter new password:");
-                selectedUser.Password = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
+
+                if (userInput == "x")
+                {
+                    return;
+                }
+
+                selectedUser.Password = userInput;
                 _userRepository.Save();
             }
             else if (userChoice == "address")
             {
                 Console.Write("\nEnter new address:");
-                selectedUser.Address = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
+
+                if (userInput == "x")
+                {
+                    return;
+                }
+
+                selectedUser.Address = userInput;
                 _userRepository.Save();
             }
             else
