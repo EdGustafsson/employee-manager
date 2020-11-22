@@ -21,7 +21,7 @@ namespace EmployeeManager
                 Console.WriteLine("Enter c to create new user");
                 Console.WriteLine("Enter d to delete a user");
                 Console.WriteLine("Enter e to edit a user");
-                Console.WriteLine("Enter x at any point to return to the main menu");
+                Console.WriteLine("Enter x at any point to go back");
 
 
 
@@ -56,7 +56,7 @@ namespace EmployeeManager
             while (true)
             {
                 Console.WriteLine("\nMAIN MENU");
-                Console.WriteLine("Enter x at any point to return to the main menu");
+                Console.WriteLine("Enter x at any point to go back");
 
                 _userRepository = new FileUserRepository();
 
@@ -221,6 +221,8 @@ namespace EmployeeManager
 
         public void AdminEditUser()
         {
+            while (true) { 
+
             List<User> _users = _userRepository.GetUsers();
 
             Console.WriteLine("Type the ID of the user you would like to edit");
@@ -242,10 +244,14 @@ namespace EmployeeManager
                 Console.WriteLine("No user with that ID found");
             }
 
+            }
         }
 
         public void EditUser(User user)
         {
+
+            while (true) 
+            { 
             List<User> _users = _userRepository.GetUsers();
 
             User selectedUser = _users.Single(e => e.Id == user.Id);
@@ -344,7 +350,7 @@ namespace EmployeeManager
 
             _userRepository.Save();
 
-
+            }
 
         }
     }
