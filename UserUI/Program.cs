@@ -1,5 +1,6 @@
 ﻿using System;
 using EmployeeManager.Users;
+using EmployeeManager;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,103 +9,22 @@ namespace UserUI
 {
     class Program
     {
-        private static IUserRepository _userRepository;
+
+        private static Login _login;
+        private static Manager _manager;
+        private static User _activeUser;
 
         static void Main(string[] args)
         {
-            _userRepository = new FileUserRepository();
-
             Console.WriteLine("EmployeeManager User 1.0\n");
 
-            User activeUser;
+            _login = new Login();
+            _manager = new Manager();
 
 
+            _activeUser = _login.LoginUser();
 
-
-            while (true)
-            {
-
-                Console.WriteLine("\nEnter user ID:");
-                string userInput1 = Console.ReadLine();
-                Console.WriteLine("\nEnter user password");
-                string userInput2 = Console.ReadLine();
-
-                if (_userRepository.UserExist(userInput1, userInput2))
-                {
-
-                    activeUser = _userRepository.GetUser(userInput1);
-
-                    break;
-
-                }
-
-                Console.WriteLine("Wrong ID or password");
-
-            }
-
-            Console.WriteLine("\nSuccessful Log in\n");
-
-            while (true)
-            {
-                Console.WriteLine("\nAccount information");
-                Console.WriteLine("Id = " + activeUser.Id);
-                Console.WriteLine("Name = " + activeUser.Name);
-                Console.WriteLine("Password = " + activeUser.Password);
-                Console.WriteLine("Address = " + activeUser.Address);
-
-                Console.WriteLine("\n Enter which item you would like to change");
-                Console.WriteLine("*In lowercase only");
-
-                string userChoice = Console.ReadLine();
-
-
-
-
-                if (userChoice == "id")
-                {
-                    while (true)
-                    {
-                        Console.Write("\nEnter new id:");
-                        string id = Console.ReadLine();
-
-                        if (_userRepository.UserExist(id))
-                        {
-                            Console.WriteLine("\nA user with that ID already exists");
-                        }
-                        else
-                        {
-
-                            activeUser.Id = id;
-                            break;
-                        }
-                    }
-
-                }
-                else
-                {
-                    switch (userChoice)
-                    {
-
-                        case "name":
-                            Console.Write("\nEnter new name:");
-                            activeUser.Name = Console.ReadLine();
-                            break;
-                        case "password":
-                            Console.Write("\nEnter new password:");
-                            activeUser.Password = Console.ReadLine();
-                            break;
-                        case "address":
-                            Console.Write("\nEnter new address:");
-                            activeUser.Address = Console.ReadLine();
-                            break;
-                    }
-                }
-
-                _userRepository.Save();
-
-            }
-
-
+            _manager.UserMain(_activeUser);
 
 
         }
