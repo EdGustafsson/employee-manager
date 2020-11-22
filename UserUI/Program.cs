@@ -19,14 +19,10 @@ namespace UserUI
             Console.WriteLine("EmployeeManager User 1.0\n");
 
             _login = new Login();
-            _manager = new Manager();
-
-
             _activeUser = _login.LoginUser();
 
+            _manager = new Manager();
             _manager.UserMain(_activeUser);
-
-
         }
     }
 }

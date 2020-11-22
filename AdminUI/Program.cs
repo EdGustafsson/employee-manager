@@ -16,13 +16,10 @@ namespace AdminUI
             Console.WriteLine("EmployeeManager Admin 1.0");
 
             _login = new Login();
-            _manager = new Manager();
-
-
             _login.LoginAdmin();
 
+            _manager = new Manager();
             _manager.AdminMain();
-
         }
     }
 }

@@ -9,8 +9,6 @@ namespace EmployeeManager.Users
 {
     public class FileUserRepository : IUserRepository
     {
-        //private readonly string _appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        //private readonly string _applicationDirectory = "User";
         private readonly string _fileName = "Users.csv";
         private readonly string _path;
         private readonly List<User> _users = new List<User>();
@@ -19,13 +17,6 @@ namespace EmployeeManager.Users
 
             var path = Path.Combine(@"..\..\..\..\", _fileName);
 
-            //if (!Directory.Exists(directory))
-            //{
-            //    Directory.CreateDirectory(directory);
-            //}
-
-            //var path = Path.Combine(directory, _fileName);
-
             if (!File.Exists(path))
             {
                 using (File.Create(path)) { }
@@ -33,11 +24,6 @@ namespace EmployeeManager.Users
 
             _path = path;
 
-
-            //_users = File.ReadAllLines(_fileName)
-            //                               .Skip(1)
-            //                               .Select(v => User.FromCsv(v))
-            //                               .ToList();
 
             string line;
 

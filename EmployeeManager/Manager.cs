@@ -88,10 +88,6 @@ namespace EmployeeManager
 
         public void CreateUser()
         {
-            bool a = true;
-
-            while (a)
-            {
 
                 string input1 = "";
                 string input2 = "";
@@ -108,7 +104,7 @@ namespace EmployeeManager
                     {
                         Console.WriteLine("\nA user with that ID already exists, please choose another");
                     }
-                    if (!input1.All(char.IsDigit))
+                    else if (!input1.All(char.IsDigit))
                     {
                         Console.WriteLine("\nID can only be numbers");
                     }
@@ -146,26 +142,22 @@ namespace EmployeeManager
 
 
 
-                if (input5 == "y")
-                {
-                    input5 = "1";
-                }
-                else if (input5 == "n")
-                {
-                    input5 = "0";
-                }
-
-
-                else
-                {
-
-                    User newUser = new User(input1, input2, input3, input4, input5);
-
-                    _userRepository.AddUser(newUser);
-                    _userRepository.Save();
-                    a = false;
-                }
+            if (input5 == "y")
+            {
+                input5 = "1";
             }
+            else if (input5 == "n")
+            {
+                input5 = "0";
+            }
+
+
+                User newUser = new User(input1, input2, input3, input4, input5);
+
+                _userRepository.AddUser(newUser);
+                _userRepository.Save();
+            
+            
         }
         public void DeleteUser()
         {
@@ -212,72 +204,6 @@ namespace EmployeeManager
             {
                 Console.WriteLine("No user with that ID found");
             }
-
-
-            //Console.WriteLine("\nAccount information");
-            //Console.WriteLine("Id = " + selectedUser.Id);
-            //Console.WriteLine("Name = " + selectedUser.Name);
-            //Console.WriteLine("Password = " + selectedUser.Password);
-            //Console.WriteLine("Address = " + selectedUser.Address);
-
-            //Console.WriteLine("\n Enter which item you would like to change");
-            //Console.WriteLine("In lowercase only (e.g., id, name, password, address)");
-
-            //string userChoice = Console.ReadLine();
-
-
-
-
-            //if (userChoice == "id")
-            //{
-            //    while (true)
-            //    {
-            //        Console.Write("\nEnter new id:");
-            //        string id = Console.ReadLine();
-
-            //        if (_userRepository.UserExist(id))
-            //        {
-            //            Console.WriteLine("\nA user with that ID already exists");
-            //        }
-            //        else
-            //        {
-
-            //            selectedUser.Id = id;
-
-            //            _userRepository.Save();
-            //            break;
-            //        }
-            //    }
-
-            //}
-            //else if(userChoice == "name")
-            //{
-            //    Console.Write("\nEnter new name:");
-            //    selectedUser.Name = Console.ReadLine();
-
-            //    _userRepository.Save();
-            //}
-            //else if(userChoice == "password")
-            //{
-            //    Console.Write("\nEnter new password:");
-            //    selectedUser.Password = Console.ReadLine();
-
-            //    _userRepository.Save();
-            //}
-            //else if (userChoice == "address")
-            //{
-            //    Console.Write("\nEnter new address:");
-            //    selectedUser.Address = Console.ReadLine();
-
-            //    _userRepository.Save();
-            //}
-            //else
-            //{
-            //    Console.WriteLine("\nPlease enter one of the choices below");
-            //}
-
-
-
 
         }
 
